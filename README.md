@@ -7,6 +7,7 @@ The resulting coordinates are computed in 2D, futher updates will include 3D NBV
 
 The object and camera center can be set up in the `float cloudCentroid[3]={1,0,0};` and `octomap::point3d sensorOrigin(0,0,0);` lines, the camera direction is assumed to be towards the centroid of the object.
 
+A file named `check.bt` is created to visualize the Field of View of the camera towards the object, which can be opened with `octovis` included in the Octomap library.
 
 [1] Delmerico, J., Isler, S., Sabzevari, R. et al. Auton Robot (2018) 42: 197. https://doi.org/10.1007/s10514-017-9634-0
 
