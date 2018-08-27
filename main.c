@@ -26,13 +26,13 @@ main (int argc, char** argv)
     PCL_ERROR ("Couldn't read file bunny.pcd \n");
     return (-1);
   }
-Eigen::Vector4f centroid;
 
     /*  Create OcTree  */
-
-
+    
   octomap::Pointcloud x;
-  octomap::OcTree tree (0.01),cloudAndUnknown (0.01);            //  Create Octree
+  octomap::OcTree tree (0.01),cloudAndUnknown (0.01);            //  Two octrees are needed, "tree" will have all the information
+                                                                //  needed for processing, "cloudAndUnknown" is a simplified OcTree
+                                                                //  containing just the known occupied voxels and unknown voxels.
 
   for (size_t i = 0; i < cloud->points.size (); ++i){
 //      std::cout << "    " << cloud->points[i].x
@@ -49,8 +49,6 @@ Eigen::Vector4f centroid;
               ,cloud->points[i].z+cloudCentroid[2],true);
       cloudNode->setValue(13);          //  the number 13(random) is saved on each cloud voxel, so that when
                                         //  rayCast finds the node I can check if ==13 I found an object voxel
-
-
   }
 
     std::cout<< cloudCentroid[0]<< " < X "<<cloudCentroid[1]<< " < Y "<<cloudCentroid[2]<< " < Z ";
@@ -141,8 +139,6 @@ Eigen::Vector4f centroid;
     tree.insertPointCloud(PW,sensorOrigin);             //  PW inserted for visualizing the FoV from the sensorOrigin
 
     tree.writeBinary("check.bt");
-
-octomap::Pointcloud background;
 
 
 /*  Search for unknown voxels  */
