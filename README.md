@@ -1,9 +1,9 @@
 # Next Best View Computation 
-### Using Occlussion Aware Voumetric Information
+### Using Occlusion Aware Volumetric Information
 ## Description
 
-This algorithm reads a PLC file and prints the Next Best View (NBV) coordinates based on the Occlussion Aware VI method presented in [1].
-The resulting coordinates are computed in 2D, futher updates will include 3D NBVs. The camera is set up as a kinect 1.
+This algorithm reads a PLC file and prints the Next Best View (NBV) coordinates based on the Occlusion Aware VI method presented in [1].
+The resulting coordinates are computed in 2D, further updates will include 3D NBVs. The camera is set up as a kinect 1.
 
 The object and camera center can be set up in the `float cloudCentroid[3]={1,0,0};` and `octomap::point3d sensorOrigin(0,0,0);` lines, the camera direction is assumed to be towards the centroid of the object.
 
